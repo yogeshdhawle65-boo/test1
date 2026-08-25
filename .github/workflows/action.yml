@@ -9,6 +9,7 @@ jobs:
 
     steps:
       - name: first-step
-        run: |
-          echo "Hello World"
-          echo "This is the second step"
+        run: echo "Hello World"
+
+      - name: github checkout
+        uses: actions/checkout@v6
