@@ -15,6 +15,7 @@ jobs:
         uses: actions/checkout@v6
 
   second-job:
+    needs: first-job
     runs-on: ubuntu-latest
 
     steps:
