@@ -5,8 +5,10 @@ on: workflow_dispatch
 jobs:
   first-job:
     runs-on: ubuntu-latest
+
     steps:
       - name: first-step
-        run: |
-          echo "Hello World"
-          echo "This is the second step"
+        run: echo "Hello World"
+
+      - name: github checkout
+        uses: actions/checkout@v6
