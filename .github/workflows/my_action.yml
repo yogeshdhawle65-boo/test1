@@ -1,0 +1,28 @@
+name: Python-CI
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Show Python version
+        run: python --version
+
+      - name: Send Slack notification
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        run: |
+          curl -X POST \
+            -H "Content-Type: application/json" \
+            --data '{"text":"✅ Python CI completed successfully!"}' \
+            "$SLACK_WEBHOOK"
