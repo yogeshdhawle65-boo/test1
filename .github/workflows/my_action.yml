@@ -27,7 +27,7 @@ jobs:
         continue-on-error: true
         uses: rtCamp/action-slack-notify@v2
         env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_WEBHOOK: ${{ secrets.GITHUBSLACK }}
           SLACK_COLOR: ${{ job.status }}
           SLACK_TITLE: "Python-CI"
           SLACK_MESSAGE: |
@@ -35,4 +35,3 @@ jobs:
             on branch '${{ github.ref_name }}'.
             Commit: '${{ github.sha }}'.
             Triggered by '${{ github.actor }}'.
-            
